@@ -1,0 +1,44 @@
+<section class="container">
+<header>Que CEP você procura?</header>
+
+<div class="busca">
+  <input
+  type="search"
+  class="busca__input"
+  placeholder="Digite um CEP"
+  [formControl]="campoBusca"
+  maxlength="8"
+  >
+  <button type="button" (click)="buscar(campoBusca.value)" class="busca__botao">
+    <img src="assets/images/lupa.svg" alt="Lupa de cor verde">
+  </button>
+</div>
+
+<div class="mensagem-erro" *ngIf="mensagemErro">
+  {{ mensagemErro }}
+</div>
+
+<div class="quadro__cep">
+  <div class="quadro__cep__titulo">
+    <h2>CEP</h2>
+  </div>
+<div class="info-cep" *ngIf="cepEncontrado$ | async; else semMensagem">
+  <p class="cep">CEP:  {{ cepResultado.cep }}</p>
+  <p class="state">Estado: {{ cepResultado.state }}</p>
+  <p class="city">Cidade: {{ cepResultado.city }}</p>
+  <p class="neighborhood">Bairro: {{ cepResultado.neighborhood }}</p>
+  <p class="street">Rua: {{ cepResultado.street }}</p>
+</div>
+
+<ng-template #semMensagem>
+  <div class="info-cep">
+    <p class="cep">CEP: </p>
+    <p class="state">Estado: </p>
+    <p class="city">Cidade: </p>
+    <p class="neighborhood">Bairro: </p>
+    <p class="street">Rua: </p>
+  </div>
+</ng-template>
+</div>
+
+</section>
