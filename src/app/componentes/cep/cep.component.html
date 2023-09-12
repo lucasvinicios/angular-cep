@@ -1,5 +1,5 @@
 <section class="container">
-<header>Que CEP você procura?</header>
+<header>Qual CEP você procura?</header>
 
 <div class="busca">
   <input
@@ -16,6 +16,12 @@
 
 <div class="mensagem-erro" *ngIf="mensagemErro">
   {{ mensagemErro }}
+</div>
+
+<div class="mensagem-sucesso" *ngIf="(cepEncontrado$ | async) && !mensagemErro">
+  <div class="mensagem-sucesso">
+    CEP Encontrado
+  </div>
 </div>
 
 <div class="quadro__cep">

@@ -16,6 +16,7 @@ export class CepComponent implements OnInit {
   cep = '';
   cepResultado: any = '';
   mensagemErro: string | null = '';
+  cepEncontrado: string | null = '';
 
   constructor(private service: BuscacepService) { }
 
